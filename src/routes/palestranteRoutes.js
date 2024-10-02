@@ -3,7 +3,7 @@ import { cadastroPalestrante, listarPalestrantes } from "../controller/palestran
 
 const router = Router()
 
-router.post("/", cadastroPalestrante); //cadastrar
-router.get("/", listarPalestrantes); //cadastrar
+router.post("/", cadastroPalestrante);
+router.get("/", listarPalestrantes); 
 
 export default router;
