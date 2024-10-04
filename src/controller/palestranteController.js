@@ -2,9 +2,9 @@ import conn from "../config/conn.js";
 import { v4 as uuid } from "uuid"
 
 export const cadastroPalestrante = (req, res) => {
-    const { nome, expertise } = req.body
+    const { nome_palestrante, expertise } = req.body
 
-    if (!nome) {
+    if (!nome_palestrante) {
         res.status(400).json({ message: "dados no campo de NOME é obrigatório" })
         return
     }
@@ -14,8 +14,8 @@ export const cadastroPalestrante = (req, res) => {
     }
 
     const id = uuid();
-    const insertPalestranteSQL = `INSERT INTO palestrantes (palestrante_id, nome, expertise ) VALUES (?, ?,?)`;
-    const insertPalestranteValues = [id, nome, expertise];
+    const insertPalestranteSQL = `INSERT INTO palestrantes (palestrante_id, nome_palestrante, expertise ) VALUES (?, ?,?)`;
+    const insertPalestranteValues = [id, nome_palestrante, expertise];
 
     conn.query(insertPalestranteSQL, insertPalestranteValues, (err, data) => {
         if (err) {

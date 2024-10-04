@@ -18,10 +18,10 @@ import "./models/eventoModel.js"
 import "./models/palestranteModel.js"
 import "./models/participanteModel.js"
 import "./models/inscricaoModel.js"
+import "./models/feedbackModel.js"
 
 app.use("/eventos/palestrantes", palestranteRouter)
-app.use("/eventos", eventoRouter)
-app.use("/eventos", participanteRouter)
+app.use("/eventos", eventoRouter, participanteRouter)
 
 app.get("*", (req, res) => {
     res.status(404).json({message: "Rota não encontrada"})

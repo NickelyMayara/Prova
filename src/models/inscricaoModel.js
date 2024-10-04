@@ -6,8 +6,8 @@ CREATE TABLE IF NOT EXISTS inscritos(
     eventoID VARCHAR(60),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP, 
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY participanteID REFERENCES participantes(participante_id),
-    FOREIGN KEY eventoID REFERENCES eventos(evento_id)
+    FOREIGN KEY (participanteID) REFERENCES participantes(participante_id),
+    FOREIGN KEY (eventoID) REFERENCES eventos(evento_id)
 )`
 
 conn.query(tabelaInscritos, (error) => {
